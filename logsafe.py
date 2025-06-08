@@ -74,3 +74,41 @@ def ver_logins(): # Parte do código na qual o usuário necessita digitar um PIN
 
     elif pin_inserido is not None:
         messagebox.showerror("Erro", "PIN incorreto!") # Caso seja digitado algo diferente de 1234, que é o PIN exemplificado no programa, a mensagem de erro será mostrada.
+
+# Interface gráfica do código.
+
+janela = tk.Tk()
+janela.title("Carteira de Logins")
+janela.geometry("980x550")
+janela.resizable(False, False)
+janela.configure(bg="#181818")
+
+# Parte estética do código, como labels, textos etc.
+label_titulo = tk.Label(janela, text="LogSafe", font=("Myriad Pro", 30, "bold"), fg="White", bg="#201c1c")
+label_titulo.pack(pady=10)
+
+frame_entradas = tk.Frame(janela, bg="#201c1c")
+frame_entradas.pack(pady=5)
+
+label_email = tk.Label(frame_entradas, text="Email:", font=("Myriad Pro", 15, "bold"), bg="#434343", fg="White")
+label_email.grid(row=0, column=0, padx=5, pady=5, sticky="w")
+entry_email = tk.Entry(frame_entradas, width=30, bg="#434343", fg="White")
+entry_email.grid(row=0, column=1, padx=5, pady=5)
+
+label_senha = tk.Label(frame_entradas, text="Senha:", font=("Myriad Pro", 15, "bold"), bg="#434343", fg="White")
+label_senha.grid(row=1, column=0, padx=5, pady=5, sticky="w")
+entry_senha = tk.Entry(frame_entradas, show="*", width=30, bg="#434343", fg="White")
+entry_senha.grid(row=1, column=1, padx=5, pady=5)
+
+frame_botoes = tk.Frame(janela, bg="#181818")
+frame_botoes.pack(pady=20)
+
+botao_confirmar = tk.Button(frame_botoes, text="Confirmar", command=salvar_login, bg= "#201c1c", fg="White")
+botao_confirmar.grid(row=0, column=0, padx=10)
+
+botao_ver_logins = tk.Button(frame_botoes, text="Ver Logins", command=ver_logins, bg= "#201c1c", fg="White")
+botao_ver_logins.grid(row=0, column=1, padx=10)
+
+janela.mainloop()
+
+# Por hoje é tudo pessoal :)
